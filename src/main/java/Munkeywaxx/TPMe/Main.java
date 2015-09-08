@@ -21,6 +21,8 @@ public final class Main extends JavaPlugin {
 		PluginManager pm = getServer().getPluginManager();
 		pm.addPermission(playerPermission);
 		new TPMeListener(this);
+		getConfig().options().copyDefaults(true);
+		saveConfig();
 		
 	}
 		
@@ -32,29 +34,32 @@ public final class Main extends JavaPlugin {
 		
 		public boolean onCommand (CommandSender sender, Command cmd, String label, String[] args) { 
 			
-				 if (cmd.getName().equalsIgnoreCase("TPMe") && sender instanceof Player) {
+				 if (cmd.getName().equalsIgnoreCase("RTP") && sender instanceof Player) {
 					Player player = (Player) sender;
 					Location originalLocation = player.getLocation();
+					
+						if(label.equalsIgnoreCase("RTP")) {
+							if (!player.hasPermission("tpme.true")) {
+								player.sendMessage("You do not have permissions to use this command."); }else{
+									
 						
-					if (!player.hasPermission("tpme.true")) {
-						player.sendMessage("You do not have permissions to use this command."); }else{
-				
-				Random random = new Random();
-				int x = random.nextInt(5000) +1;
-				int y = 150;
-				int z = random.nextInt(5000) +1;
-				
-				Location teleportLocation = new Location(player.getWorld(), x, y, z);
-				player.teleport(teleportLocation);
-				
-				player.sendMessage(ChatColor.GREEN + "Teleported " + (int)teleportLocation.distance(originalLocation) + " Blocks Away.");
+						Random random = new Random();
+						int x = random.nextInt(5000) +1;
+						int y = 150;
+						int z = random.nextInt(5000) +1;
+						
+						Location teleportLocation = new Location(player.getWorld(), x, y, z);
+						player.teleport(teleportLocation);
+						
+						player.sendMessage(ChatColor.GREEN + "Teleported " + (int)teleportLocation.distance(originalLocation) + " Blocks Away.");
+							}
+						
+						return true;
 					}
 				
-				return true;
-			}
-		
-		return false;
-	}
+				return false;
+			
+			 }
+				return false;
 	
-	
-}
+		}}
