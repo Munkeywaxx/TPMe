@@ -1,0 +1,7 @@
+name: TPMe
+main: Munkeywaxx.TPMe.Main
+version: 0.0.1
+commands:
+  TPMe:
+    description: Teleports 5000 blocks in a random direction
+    usage: /<command>
