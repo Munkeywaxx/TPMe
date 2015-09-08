@@ -17,7 +17,7 @@ public class TPMeListener implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent s) {
 		Player player = s.getPlayer();
-		s.setJoinMessage(ChatColor.AQUA + "Welcome back " + player.getName());
+		s.setJoinMessage(ChatColor.AQUA + "Welcome back " + player.getName() + ("!"));
 		
 		if (player.hasPlayedBefore() == true) {
 			player.sendMessage(ChatColor.BLUE + "Welcome back!");
