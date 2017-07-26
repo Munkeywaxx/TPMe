@@ -23,7 +23,6 @@ public final class Main extends JavaPlugin {
 		new TPMeListener(this);
 		getConfig().options().copyDefaults(true);
 		saveConfig();
-		
 	}
 		
 		@Override
@@ -40,7 +39,7 @@ public final class Main extends JavaPlugin {
 					
 						if(label.equalsIgnoreCase("RTP")) {
 							if (!player.hasPermission("tpme.true")) {
-								player.sendMessage("You do not have permissions to use this command."); }else{
+								player.sendMessage("Nope! - Seek help!"); }else{
 									
 						
 						Random random = new Random();
